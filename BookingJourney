@@ -1,0 +1,13 @@
+for(const data of dataset)
+{
+
+test(`Perofrmaing all actions with password ${data.password}`,async({page})=>
+{
+   
+    const poManager= new PoManager(page,data.hotelsearch);
+
+   const loginpage= poManager.getLoginpage();
+   const specialcodebooking= poManager.getspecialcodebooking();
+
+
+   await loginpage.goTo(data.url)
